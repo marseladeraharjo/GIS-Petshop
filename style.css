@@ -1,0 +1,40 @@
+body {
+  background-color: #efe4d7;
+}
+
+.btn {
+  border-radius: 1em;
+}
+
+.filter-and-map,
+.detail {
+  margin-top: 1em;
+}
+
+.map,
+.image {
+  border-radius: 1em;
+}
+
+.tales {
+  height: 400px;
+}
+
+.card-body .form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control-user {
+  font-size: 1rem;
+  border-radius: 10rem;
+  padding: 0.7rem;
+}
+
+.btn-user {
+  border-radius: 10rem;
+  padding: 0.5rem;
+}
+
+.card {
+  border-radius: 1rem;
+}
