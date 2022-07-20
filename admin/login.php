@@ -39,6 +39,9 @@
     <!-- My Style -->
     <link rel="stylesheet" href="style.css" />
 
+    <!-- logo -->
+    <link rel="shortcut icon" href="../logo.png">
+
     <title>Login | SIG Petshop</title>
   </head>
   <body>
@@ -51,10 +54,12 @@
                 <div class="col">
                   <div class="p-5">
                     <div class="text-center">
-                      <h3>
-                        <strong>SIG <span style="color: #05595b">PETSHOP</span></strong>
-                      </h3>
-                      <p><strong>Kota Purwokerto</strong></p>
+                      <a href="../beranda.php" style="text-decoration: none; color: black;">
+                        <h3>
+                          <strong>SIG <span style="color: #05595b">PETSHOP</span></strong>
+                        </h3>
+                        <p><strong>Kota Purwokerto</strong></p>
+                      </a>
                     </div>
                     <form class="mt-5" method="POST">
                       <div class="form-group">
@@ -65,6 +70,9 @@
                       </div>
                       <div class="d-grid gap-2">
                         <button class="btn text-light btn-user" style="background-color: #05595b; border-radius: 10rem" type="submit" name="submit_login"><strong>Masuk</strong></button>
+                      </div>
+                      <div class="text-center mt-1">
+                        <a href="../beranda.php" style="color: #05595b;"><small>Kembali</small></a>
                       </div>
                     </form>
                   </div>

@@ -15,6 +15,30 @@
       $jumlahKelurahan = $row['jumlah_kelurahan'];
   }
 
+  $sql_count_utara = "SELECT COUNT(id_lokasi) AS jumlah_utara FROM lokasi WHERE id_kecamatan = 1";
+  $countUtara = mysqli_query($conn, $sql_count_utara);
+  while ($row = mysqli_fetch_assoc($countUtara)) {
+    $jumlahUtara = $row['jumlah_utara'];
+  }
+
+  $sql_count_timur = "SELECT COUNT(id_lokasi) AS jumlah_timur FROM lokasi WHERE id_kecamatan = 2";
+  $countTimur = mysqli_query($conn, $sql_count_timur);
+  while ($row = mysqli_fetch_assoc($countTimur)) {
+    $jumlahTimur = $row['jumlah_timur'];
+  }
+
+  $sql_count_barat = "SELECT COUNT(id_lokasi) AS jumlah_barat FROM lokasi WHERE id_kecamatan = 3";
+  $countBarat = mysqli_query($conn, $sql_count_barat);
+  while ($row = mysqli_fetch_assoc($countBarat)) {
+    $jumlahBarat = $row['jumlah_barat'];
+  }
+
+  $sql_count_selatan = "SELECT COUNT(id_lokasi) AS jumlah_selatan FROM lokasi WHERE id_kecamatan = 4";
+  $countSelatan = mysqli_query($conn, $sql_count_selatan);
+  while ($row = mysqli_fetch_assoc($countSelatan)) {
+    $jumlahSelatan = $row['jumlah_selatan'];
+  }
+  
   // KECAMATAN UNTUK SELECT OPTION
   $sqlKecamatan = "SELECT * FROM kecamatan ORDER BY nama_kecamatan ASC";
   $listKecamatan = mysqli_query($conn, $sqlKecamatan);
@@ -64,7 +88,7 @@
             $and_lokasi = true;
         }
         if ($keyword != "") {
-            $sql_lokasi .= $and_kategori === true ? " AND " : "";
+            $sql_lokasi .= $and_kecamatan === true || $and_lokasi === true ? " AND " : "";
             $sql_lokasi .= " lokasi.nama LIKE '%$keyword%'";
         }
     }
@@ -128,10 +152,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css" />
 
     <!-- Mapbox -->
-    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet" />
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet" />
 
     <!-- My Style -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- logo -->
+    <link rel="shortcut icon" href="../logo.png">
 
     <title>Dashboard Admin | SIG Petshop</title>
   </head>
@@ -139,7 +166,7 @@
     <section id="navbar">
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fffaf4">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="dashboard.php">
             <strong>SIG <span style="color: #05595b">PETSHOP</span> | Dashboard</strong>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -150,9 +177,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <strong>More</strong> </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Data Petshop</a></li>
-                  <li><a class="dropdown-item" href="#">Data Request</a></li>
-                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                  <li><a class="dropdown-item" href="data-petshop.php">Data Petshop</a></li>
+                  <li><a class="dropdown-item" href="session_logout.php">Logout</a></li>
                 </ul>
               </li>
             </ul>
@@ -170,7 +196,7 @@
               <div class="card text-white mb-2" style="background-color: #557c55">
                 <div class="card-body">
                   <h5 class="card-title text-center">Purwokerto Utara</h5>
-                  <h4 class="card-text text-center">1</h4>
+                  <h4 class="card-text text-center"><?php echo $jumlahUtara ?></h4>
                 </div>
               </div>
             </span>
@@ -178,7 +204,7 @@
               <div class="card text-white mb-2" style="background-color: #8b9a46">
                 <div class="card-body">
                   <h5 class="card-title text-center">Purwokerto Timur</h5>
-                  <h4 class="card-text text-center">2</h4>
+                  <h4 class="card-text text-center"><?php echo $jumlahTimur ?></h4>
                 </div>
               </div>
             </span>
@@ -186,7 +212,7 @@
               <div class="card text-white mb-2" style="background-color: #557c55">
                 <div class="card-body">
                   <h5 class="card-title text-center">Purwokerto Barat</h5>
-                  <h4 class="card-text text-center">1</h4>
+                  <h4 class="card-text text-center"><?php echo $jumlahBarat ?></h4>
                 </div>
               </div>
             </span>
@@ -194,7 +220,7 @@
               <div class="card text-white mb-2" style="background-color: #8b9a46">
                 <div class="card-body">
                   <h5 class="card-title text-center">Purwokerto Selatan</h5>
-                  <h4 class="card-text text-center">5</h4>
+                  <h4 class="card-text text-center"><?php echo $jumlahSelatan ?></h4>
                 </div>
               </div>
             </span>
@@ -257,7 +283,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
     <script>
       $(function() {
         $('#kecamatan').trigger('change');
@@ -321,10 +347,9 @@
             var map = new mapboxgl.Map({
                         container: 'map',
                         style: 'mapbox://styles/mapbox/outdoors-v11',
-                        center: [109.23819945612114, -7.419380317240572],
-                        zoom: 11,
+                        center: [109.2418414114881, -7.428974653891736],
+                        zoom: 12,
                     });
-
 
             map.on('load', function () {
                 map.addLayer({
@@ -354,8 +379,8 @@
                 
                 var html = '';
                 html += "<b>" + data['nama'] + "</b>";
-                html += "<p>"+data['alamat']+"</p>";
-                html += data['info'];
+                html += "<p>("+data['layanan']+")</p>";
+                html += "<p>Alamat: "+data['alamat']+"</p>";
 
                 new mapboxgl
                     .Marker()

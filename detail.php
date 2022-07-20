@@ -1,3 +1,21 @@
+<?php 
+include "admin/koneksi.php";
+$id = $_GET['id'];
+
+$result = mysqli_query($conn, "SELECT * FROM lokasi WHERE id_lokasi = $id");
+$row = mysqli_fetch_assoc($result);
+$nama = $row['nama'];
+$info = $row['info'];
+$alamat = $row['alamat'];
+$jadwal = $row['jadwal'];
+$telp = $row['telp'];
+$layanan = explode(', ', $row['layanan']);
+$kecamatan = $row['id_kecamatan'];
+$kelurahan = $row['id_kelurahan'];
+$lat = $row['lat'];
+$lng = $row['lng'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,28 +36,23 @@
     <!-- style.css -->
     <link rel="stylesheet" href="style.css" />
 
+    <!-- logo -->
+    <link rel="shortcut icon" href="logo.png">
+
     <title>Detail | SIG Petshop</title>
   </head>
   <body>
     <section id="navbar">
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fffaf4">
         <div class="container">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="beranda.php">
             <strong>SIG <span style="color: #05595b">PETSHOP</span></strong>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-gear-fill"></i>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <strong>More</strong> </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Request</a></li>
-                  <li><a class="dropdown-item" href="#">Login Admin</a></li>
-                </ul>
-              </li>
-            </ul>
+          <a class="btn btn-block text-light" style="background-color: #05595b" href="admin/dashboard.php">Login</a>
           </div>
         </div>
       </nav>
@@ -50,20 +63,37 @@
       <div class="detail">
         <div class="container">
           <div class="row text-center" id="detail-name">
-            <h4>Cimo Petshop</h4>
-            <p>081809717273</p>
-            <p>Jl. Rasamala No. 60, Karang Malang, Teluk, Kec. Purwokerto Sel.</p>
+            <h4><?= $nama; ?></h4>
+            <p>Telp: <?= $telp; ?></p>
+            <p> Alamat: <?= $alamat; ?></p>
           </div>
           <div class="row" id="detail-carousel-map">
             <div class="col-md-6 mt-2">
               <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner image">
-                  <div class="carousel-item active">
-                    <img src="images/background.jpg" class="d-block w-100 tales" alt="..." />
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/background-2.jpg" class="d-block w-100 tales" alt="..." />
-                  </div>
+                <?php 
+                  $no = 1;
+                  $sqlfoto = mysqli_query($conn, "SELECT * FROM foto WHERE id_lokasi = $id");
+                  while ($rowfoto = mysqli_fetch_assoc($sqlfoto)) {
+                    $foto = $rowfoto['nama'];
+                    if ($no==1){
+                ?>
+
+                      <div class="carousel-item active">
+                        <img class="d-block w-100 tales" src="admin/images/<?php echo $foto; ?>" />
+                      </div>
+                    <?php 
+                    }
+                    if ($no>1){
+                    ?>
+                      <div class="carousel-item">
+                        <img class="d-block w-100 tales" src="admin/images/<?php echo $foto; ?>" />
+                      </div>
+                    <?php 
+                    }
+                    $no++;
+                  }
+                    ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -82,25 +112,8 @@
           <div class="container mt-4" style="background-color: white; border-radius: 1em">
             <div class="row">
               <div class="col m-3">
-                <h5>Layanan:</h5>
-                <ul>
-                  <li>
-                    <h6>Pet shop</h6>
-                    <p>tempat ini menyediakan layanan petshop</p>
-                  </li>
-                  <li>
-                    <h6>Pet hotel</h6>
-                    <p>tempat ini menyediakan layanan petshop</p>
-                  </li>
-                  <li>
-                    <h6>Pet clinic</h6>
-                    <p>tempat ini menyediakan layanan petshop</p>
-                  </li>
-                  <li>
-                    <h6>Pet grooming</h6>
-                    <p>tempat ini menyediakan layanan petshop</p>
-                  </li>
-                </ul>
+                <h5>Info Detail:</h5>
+                <p><?php echo $info; ?></p>
               </div>
             </div>
           </div>
@@ -120,7 +133,11 @@
       </div>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+    
     <script>
       mapboxgl.accessToken = "pk.eyJ1IjoibWFyc2VsYWRlcmFoYXJqbyIsImEiOiJja3Z6eTl2bXQ0MHdkMm9tb3BwNmZkazUwIn0.Ir9YmaXKN3HfyzzS0zxi2A";
       var map = new mapboxgl.Map({
@@ -129,6 +146,14 @@
         center: [109.23819945612114, -7.419380317240572], // starting position [lng, lat]
         zoom: 10, // starting zoom
       });
+      var marker = new mapboxgl.Marker()
+      <?php 
+      echo "marker.setLngLat([$lng, $lat]).addTo(map);
+            map.flyTo({
+              center: [$lng, $lat],
+              zoom: 15
+            });";
+      ?>
     </script>
   </body>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2022 at 09:00 AM
+-- Generation Time: Jul 20, 2022 at 07:10 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -52,6 +52,14 @@ CREATE TABLE `foto` (
   `id_lokasi` int(2) NOT NULL,
   `nama` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `foto`
+--
+
+INSERT INTO `foto` (`id_foto`, `id_lokasi`, `nama`) VALUES
+(22, 25, 'Baru1.jpg'),
+(23, 25, 'Baru2.jpg');
 
 -- --------------------------------------------------------
 
@@ -122,27 +130,6 @@ INSERT INTO `kelurahan` (`id_kelurahan`, `id_kecamatan`, `nama_kelurahan`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `layanan`
---
-
-CREATE TABLE `layanan` (
-  `id_layanan` int(2) NOT NULL,
-  `nama_layanan` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `layanan`
---
-
-INSERT INTO `layanan` (`id_layanan`, `nama_layanan`) VALUES
-(1, 'Pet Shop'),
-(2, 'Pet Clinic'),
-(3, 'Pet Grooming'),
-(4, 'Pet Hotel');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `lokasi`
 --
 
@@ -151,9 +138,9 @@ CREATE TABLE `lokasi` (
   `nama` varchar(50) NOT NULL,
   `info` text NOT NULL,
   `alamat` text NOT NULL,
-  `jadwal_buka` text NOT NULL,
+  `jadwal` text NOT NULL,
   `telp` varchar(20) NOT NULL,
-  `id_layanan` int(2) NOT NULL,
+  `layanan` varchar(255) NOT NULL,
   `id_kecamatan` int(2) NOT NULL,
   `id_kelurahan` int(2) NOT NULL,
   `lat` text NOT NULL,
@@ -165,12 +152,13 @@ CREATE TABLE `lokasi` (
 -- Dumping data for table `lokasi`
 --
 
-INSERT INTO `lokasi` (`id_lokasi`, `nama`, `info`, `alamat`, `jadwal_buka`, `telp`, `id_layanan`, `id_kecamatan`, `id_kelurahan`, `lat`, `lng`, `id_admin`) VALUES
-(1, 'petshop', 'makan dulu', 'jl. Pramuka', '10.00', '082829290202', 2, 4, 25, '-7.431342000939774', '109.24374748481584', 1),
-(2, 'cleo petshop', 'makan dulu', 'jl. jatisari', '10.00', '08123456789', 2, 1, 7, '-7.409410720480319', '109.23872891533188', 1),
-(3, 'Qiis Petshop', 'ada', 'jl. sudirman', '20.00', '08123456789', 4, 3, 17, '-7.4234533193419505', '109.2190991674662', 1),
-(4, 'moezza petshop', 'kapan', 'jl. kaliputih', '11.00', '08123456789', 2, 2, 12, '-7.4271822416837585', '109.25564576371785', 1),
-(5, 'Cimo', 'dadada', 'jl rasamala', '13.00', '08123456789', 3, 4, 26, '-7.4500139266123', '109.2535378969649', 1);
+INSERT INTO `lokasi` (`id_lokasi`, `nama`, `info`, `alamat`, `jadwal`, `telp`, `layanan`, `id_kecamatan`, `id_kelurahan`, `lat`, `lng`, `id_admin`) VALUES
+(17, 'sapi', '<p>dadadadada</p>\r\n', 'jl bancarkembar', 'senin-jumat', '081226045229', 'Shop, Hotel', 1, 1, '-7.4102762199413235', '109.24543088094885', 1),
+(19, 'ikan', '<p>dadadada</p>\r\n', 'dadada', 'senin-jumat', '0895410587038', 'Shop, Hotel, Grooming', 4, 24, '-7.460422143085339', '109.24113197574178', 1),
+(20, 'Kurcaci', '<p>adadad</p>\r\n', 'dadada', 'senin-jumat', '0895410587038', 'Shop, Clinic, Hotel, Grooming', 2, 10, '-7.426977497497319', '109.2366688337508', 1),
+(21, 'Kintan Petshop 1', '<p>menyediakan berbagai kebutuhan hewan peliharaan anda</p>\r\n', 'jl. bobosan no 235\r\n', 'senin-jumat', '081226045229', 'Shop, Hotel', 1, 1, '-7.4065507245594375', '109.22242111123796', 1),
+(24, 'bufe', '<p>hewan peliharaan</p>\r\n', 'jl berkoh no 77', 'senin-jumat', '0895410587038', 'Shop, Grooming', 4, 27, '-7.474313492975611', '109.25017263516617', 1),
+(25, 'Baru', '<p>hewan pelilharaan</p>\r\n', 'jl kober no 90', 'senin-jumat', '0895410587038', 'Shop, Clinic, Hotel, Grooming', 3, 14, '-7.436895565535536', '109.20540404129127', 1);
 
 -- --------------------------------------------------------
 
@@ -2296,20 +2284,13 @@ ALTER TABLE `kelurahan`
   ADD KEY `kelurahan_kecamatan` (`id_kecamatan`);
 
 --
--- Indexes for table `layanan`
---
-ALTER TABLE `layanan`
-  ADD PRIMARY KEY (`id_layanan`);
-
---
 -- Indexes for table `lokasi`
 --
 ALTER TABLE `lokasi`
   ADD PRIMARY KEY (`id_lokasi`),
   ADD KEY `lokasi_kecamatan` (`id_kecamatan`),
   ADD KEY `lokasi_kelurahan` (`id_kelurahan`),
-  ADD KEY `lokasi_admin` (`id_admin`),
-  ADD KEY `lokasi_layanan` (`id_layanan`);
+  ADD KEY `lokasi_admin` (`id_admin`);
 
 --
 -- Indexes for table `poligon`
@@ -2332,7 +2313,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `foto`
 --
 ALTER TABLE `foto`
-  MODIFY `id_foto` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_foto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `kecamatan`
@@ -2347,16 +2328,10 @@ ALTER TABLE `kelurahan`
   MODIFY `id_kelurahan` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `layanan`
---
-ALTER TABLE `layanan`
-  MODIFY `id_layanan` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT for table `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `id_lokasi` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_lokasi` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `poligon`
@@ -2380,8 +2355,7 @@ ALTER TABLE `kelurahan`
 ALTER TABLE `lokasi`
   ADD CONSTRAINT `lokasi_admin` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`),
   ADD CONSTRAINT `lokasi_kecamatan` FOREIGN KEY (`id_kecamatan`) REFERENCES `kecamatan` (`id_kecamatan`),
-  ADD CONSTRAINT `lokasi_kelurahan` FOREIGN KEY (`id_kelurahan`) REFERENCES `kelurahan` (`id_kelurahan`),
-  ADD CONSTRAINT `lokasi_layanan` FOREIGN KEY (`id_layanan`) REFERENCES `layanan` (`id_layanan`);
+  ADD CONSTRAINT `lokasi_kelurahan` FOREIGN KEY (`id_kelurahan`) REFERENCES `kelurahan` (`id_kelurahan`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

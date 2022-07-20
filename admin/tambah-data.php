@@ -51,11 +51,13 @@ if (isset($_GET['id_kecamatan'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css" />
 
     <!-- Mapbox -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet" />
 
     <!-- My Style -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- logo -->
+    <link rel="shortcut icon" href="../logo.png">
 
     <title>Tambah Data | SIG Petshop</title>
   </head>
@@ -63,7 +65,7 @@ if (isset($_GET['id_kecamatan'])) {
     <section id="navbar">
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fffaf4">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="dashboard.php">
             <strong>SIG <span style="color: #05595b">PETSHOP</span></strong>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,10 +76,9 @@ if (isset($_GET['id_kecamatan'])) {
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <strong>More</strong> </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Dashboard</a></li>
-                  <li><a class="dropdown-item" href="#">Data Petshop</a></li>
-                  <li><a class="dropdown-item" href="#">Data Request</a></li>
-                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                  <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
+                  <li><a class="dropdown-item" href="data-petshop.php">Data Petshop</a></li>
+                  <li><a class="dropdown-item" href="session_logout.php">Logout</a></li>
                 </ul>
               </li>
             </ul>
@@ -98,7 +99,7 @@ if (isset($_GET['id_kecamatan'])) {
               <div id="map" class="map shadow mt-4" style="width: 100%; height: 400px"></div>
             </div>
             <div class="col-sm-12 mt-4">
-              <form action="" method="POST" enctype="multipart/form-data">
+              <form action="proses.php?p=tambah_lokasi" method="POST" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="row">
@@ -107,7 +108,7 @@ if (isset($_GET['id_kecamatan'])) {
                           <div class="input-group-prepend">
                             <span class="input-group-text font-weight-bold text-light" style="background-color: #05595b" id="label-latitude">Latitude</span>
                           </div>
-                          <input type="text" class="form-control" id="lat" name="lat" aria-describedby="label-latitude" />
+                          <input type="text" class="form-control" id="lat" name="lat" aria-describedby="label-latitude" readonly />
                         </div>
                       </div>
                       <div class="col-sm-6">
@@ -115,7 +116,7 @@ if (isset($_GET['id_kecamatan'])) {
                           <div class="input-group-prepend">
                             <span class="input-group-text font-weight-bold text-light" style="background-color: #05595b" id="label-longitude">Longitude</span>
                           </div>
-                          <input type="text" class="form-control" id="lng" name="lng" aria-describedby="label-longitude" />
+                          <input type="text" class="form-control" id="lng" name="lng" aria-describedby="label-longitude" readonly />
                         </div>
                       </div>
                     </div>
@@ -123,11 +124,11 @@ if (isset($_GET['id_kecamatan'])) {
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="">Nama Petshop</label>
-                      <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukan nama petshop" />
+                      <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama petshop" />
                     </div>
                     <div class="form-group">
                       <label for="phone">No. Telp</label>
-                      <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Masukan no. telp" />
+                      <input type="tel" id="phone" name="phone" class="form-control" placeholder="Masukkan no. telp" />
                     </div>
                     <div class="form-group">
                       <label for="">Kecamatan</label>
@@ -150,32 +151,26 @@ if (isset($_GET['id_kecamatan'])) {
                       </select>
                     </div>
                     <div class="form-group">
-                      <label for="">Jenis Layanan</label>
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
-                            <label class="form-check-label" for="flexCheckDefault"> Pet Shop </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                            <label class="form-check-label" for="flexCheckChecked"> Pet Clinic </label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
-                            <label class="form-check-label" for="flexCheckDefault"> Pet Grooming </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-                            <label class="form-check-label" for="flexCheckChecked"> Pet Hotel </label>
-                          </div>
-                        </div>
-                      </div>
+                      <label for="">Jenis Layanan</label><br>
+                      <label>
+                        <input type="checkbox" name="layanan[]" value="Shop">Shop
+                      </label> <br>
+                      <label>
+                        <input type="checkbox" name="layanan[]" value="Clinic">Clinic
+                      </label> <br>
+                      <label>
+                        <input type="checkbox" name="layanan[]" value="Hotel">Hotel
+                      </label> <br>
+                      <label>
+                        <input type="checkbox" name="layanan[]" value="Grooming">Grooming
+                      </label> <br>
                     </div>
                   </div>
                   <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="">Jadwal Operasional</label>
+                      <input type="text" class="form-control" id="jadwal" name="jadwal" placeholder="Masukkan jadwal operasional" />
+                    </div>
                     <div class="form-group">
                       <label for="">Alamat</label>
                       <textarea class="form-control" id="alamat" name="alamat" rows="4"></textarea>
@@ -190,14 +185,14 @@ if (isset($_GET['id_kecamatan'])) {
                 </div>
                 <div class="row mt-2">
                   <div class="col-sm-12">
-                    <label for="">Info Detail</label>
+                    <label for="">Info Detail Layanan</label>
                     <textarea class="ckeditor" id="ckedtor" name="info"></textarea>
                   </div>
                 </div>
                 <div class="row mt-2">
                   <div class="col-sm-12 d-flex justify-content-center">
                     <button type="submit" class="btn btn-block text-light" style="background-color: #05595b">Simpan</button>
-                    <button type="submit" class="btn btn-block btn-danger text-light ms-1">Batal</button>
+                    <a href="data-petshop.php" class="btn btn-block btn-danger text-light ms-1">Batal</a>
                   </div>
                 </div>
               </form>
@@ -233,8 +228,8 @@ if (isset($_GET['id_kecamatan'])) {
         var map = new mapboxgl.Map({
           container: "map",
           style: "mapbox://styles/mapbox/streets-v11",
-          center: [109.23819945612114, -7.419380317240572],
-          zoom: 10,
+          center: [109.2418414114881, -7.428974653891736],
+          zoom: 11,
         });
         
         marker = new mapboxgl.Marker();
@@ -260,20 +255,52 @@ if (isset($_GET['id_kecamatan'])) {
                     }
                     $('#kelurahan').append(kelurahan);
 
-                    // showPolygon(data.poligon);
+                    showPolygon(data.poligon);
                 }
             });
         });
+
+      // Mapbox
+      function showPolygon(coordinates) {
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [109.2418414114881, -7.428974653891736],
+                zoom: 11.5,
+            });
+
+            map.on('load', function () {
+                map.addLayer({
+                    'id': 'maine',
+                    'type': 'fill',
+                    'source': {
+                        'type': 'geojson',
+                        'data': {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Polygon',
+                                'coordinates': [coordinates]
+                            }
+                        }
+                    },
+                    'layout': {},
+                    'paint': {
+                        'fill-color': '#088',
+                        'fill-opacity': 0.5
+                    }
+                });
+
+                /** HANYA BISA TAMBAH MARKER DI DALAM POLIGON */
+                map.on('click', 'maine', function(e) {
+                    var lat = e.lngLat.lat;
+                    var lng = e.lngLat.lng;
+                    marker.setLngLat([lng, lat]).addTo(map);
+                    $('#lat').val(lat);
+                    $('#lng').val(lng);
+                }); 
+            });
+        }
      
     </script>
-    <!-- <script>
-      mapboxgl.accessToken = "pk.eyJ1IjoibWFyc2VsYWRlcmFoYXJqbyIsImEiOiJja3Z6eTl2bXQ0MHdkMm9tb3BwNmZkazUwIn0.Ir9YmaXKN3HfyzzS0zxi2A";
-      var map = new mapboxgl.Map({
-        container: "map", // container ID
-        style: "mapbox://styles/mapbox/streets-v11", // style URL
-        center: [109.23819945612114, -7.419380317240572], // starting position [lng, lat]
-        zoom: 10, // starting zoom
-      });
-    </script> -->
   </body>
 </html>
