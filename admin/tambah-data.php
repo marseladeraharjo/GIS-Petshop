@@ -96,7 +96,7 @@ if (isset($_GET['id_kecamatan'])) {
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <div id="map" class="map shadow mt-4" style="width: 100%; height: 400px"></div>
+              <div id="map" class="map shadow mt-4" style="width: 100%; height: 500px"></div>
             </div>
             <div class="col-sm-12 mt-4">
               <form action="proses.php?p=tambah_lokasi" method="POST" enctype="multipart/form-data">
@@ -176,7 +176,7 @@ if (isset($_GET['id_kecamatan'])) {
                       <textarea class="form-control" id="alamat" name="alamat" rows="4"></textarea>
                     </div>
                     <div class="form-group">
-                      <label for="formFileMultiple" class="form-label mb-auto">Foto <small>(*Maks 4)</small></label>
+                      <label for="formFileMultiple" class="form-label mb-auto">Foto</label>
                       <input class="form-control" type="file" id="formFileMultiple" name="foto[]" accept="image/*" multiple />
                       <!-- <label for="">Foto</label>
                       <input type="file" class="form-control" name="foto[]" accept="image/*" multiple /> -->

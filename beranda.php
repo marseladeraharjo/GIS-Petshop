@@ -343,15 +343,5 @@ if (isset($_POST['filter'])) {
             });
       }
     </script>
-    
-    <!-- <script>
-      mapboxgl.accessToken = "pk.eyJ1IjoibWFyc2VsYWRlcmFoYXJqbyIsImEiOiJja3Z6eTl2bXQ0MHdkMm9tb3BwNmZkazUwIn0.Ir9YmaXKN3HfyzzS0zxi2A";
-      var map = new mapboxgl.Map({
-        container: "map", // container ID
-        style: "mapbox://styles/mapbox/streets-v11", // style URL
-        center: [109.23819945612114, -7.419380317240572], // starting position [lng, lat]
-        zoom: 10, // starting zoom
-      });
-    </script> -->
   </body>
 </html>
