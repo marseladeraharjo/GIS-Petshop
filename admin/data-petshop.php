@@ -204,7 +204,7 @@ if(isset($_POST['filter'])){
     </script>
 
     <script>
-      mapboxgl.accessToken = "pk.eyJ1IjoibWFyc2VsYWRlcmFoYXJqbyIsImEiOiJja3Z6eTl2bXQ0MHdkMm9tb3BwNmZkazUwIn0.Ir9YmaXKN3HfyzzS0zxi2A";
+      mapboxgl.accessToken = "pk.eyJ1IjoibWFyc2VsYWRlcmFoYXJqbyIsImEiOiJjbDV4cHBzZzEwdzA4M2ttcHc2bnhpMnM2In0.rqkuPeTWmIIRjq9ADpJoCw";
       var map = new mapboxgl.Map({
         container: "map", // container ID
         style: "mapbox://styles/mapbox/streets-v11", // style URL

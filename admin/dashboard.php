@@ -341,7 +341,7 @@
       });
 
       //Mapbox
-      mapboxgl.accessToken ='pk.eyJ1IjoibWFyc2VsYWRlcmFoYXJqbyIsImEiOiJja3Z6eTl2bXQ0MHdkMm9tb3BwNmZkazUwIn0.Ir9YmaXKN3HfyzzS0zxi2A';
+      mapboxgl.accessToken ='pk.eyJ1IjoibWFyc2VsYWRlcmFoYXJqbyIsImEiOiJjbDV4cHBzZzEwdzA4M2ttcHc2bnhpMnM2In0.rqkuPeTWmIIRjq9ADpJoCw';
 
       function showPolygon(coordinates, lokasi){
             var map = new mapboxgl.Map({
