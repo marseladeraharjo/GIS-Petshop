@@ -1,20 +1,41 @@
 <?php 
   require "./koneksi.php";
 
+  // Cek login
   if(isset($_POST['submit_login'])){
 
     // cek database
+    session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
     $sql = "SELECT * FROM admin where username='".$username."' and password='".md5($password)."'";
-    $result = $conn->query($sql);
-    $row = mysqli_fetch_assoc($result);
-        
+    $data = mysqli_query($conn, $sql);
+
+    $cek = mysqli_num_rows($data);
+    $row = mysqli_fetch_assoc($data);
+
     if(!is_null($row)){
-        session_start();
-        $_SESSION["admin"] = $row;
-        header("Location: dashboard.php");
+      
     }
+    if($cek > 0) {
+      if(!is_null($row)){
+        $_SESSION['admin'] = $row;
+        header("Location: dashboard.php");
+      }
+    } else {
+      header("Location: login.php?pesan=gagal");
+    }
+    // $result = $conn->query($sql);
+    // $row = mysqli_fetch_assoc($result);
+        
+    // if(!is_null($row)){
+    //     session_start();
+    //     $_SESSION["admin"] = $row;
+    //     $_SESSION["status"] = "login";
+    //     header("Location: dashboard.php");
+    // } else {
+    //   header("Location:login.php?pesan=gagal");
+    // }
   }
 
 ?>
@@ -60,6 +81,16 @@
                         </h3>
                         <p><strong>Kota Purwokerto</strong></p>
                       </a>
+                      <!-- pesan notifikasi -->
+                      <?php 
+                      if (isset($_GET['pesan'])) {
+                        if($_GET['pesan'] == "gagal"){
+                          echo "username atau password salah!";
+                        } else if($_GET['pesan'] == "logout"){
+                          echo "Anda berhasil logout";
+                        } 
+                      }
+                      ?>
                     </div>
                     <form class="mt-5" method="POST">
                       <div class="form-group">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2022 at 05:28 PM
+-- Generation Time: Jul 31, 2022 at 06:13 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -58,31 +58,39 @@ CREATE TABLE `foto` (
 --
 
 INSERT INTO `foto` (`id_foto`, `id_lokasi`, `nama`) VALUES
-(24, 26, 'Cherry Petshop Timur1.jpg'),
-(25, 26, 'Cherry Petshop Timur2.jpg'),
-(26, 26, 'Cherry Petshop Timur3.jpg'),
-(27, 27, 'Moezza Petshop1.jpg'),
-(28, 27, 'Moezza Petshop2.jpg'),
-(29, 27, 'Moezza Petshop3.jpg'),
-(30, 27, 'Moezza Petshop4.jpg'),
-(31, 27, 'Moezza Petshop5.jpg'),
-(32, 28, 'Cimo Petshop1.jpg'),
-(33, 28, 'Cimo Petshop2.jpg'),
-(34, 28, 'Cimo Petshop3.jpg'),
-(35, 29, 'Kinkin Petshop1.jpg'),
-(36, 29, 'Kinkin Petshop2.jpg'),
-(37, 29, 'Kinkin Petshop3.jpg'),
-(38, 29, 'Kinkin Petshop4.jpg'),
-(39, 30, 'Cleo Petshop1.jpg'),
-(40, 30, 'Cleo Petshop2.jpg'),
-(41, 30, 'Cleo Petshop3.jpg'),
-(42, 31, 'Hokie Petshop1.jpg'),
-(43, 31, 'Hokie Petshop2.jpg'),
-(44, 31, 'Hokie Petshop3.jpg'),
-(45, 31, 'Hokie Petshop4.jpg'),
-(46, 32, 'Cherry Petshop Utara1.jpg'),
-(47, 32, 'Cherry Petshop Utara2.jpg'),
-(48, 32, 'Cherry Petshop Utara3.jpg');
+(1, 1, 'Cherry Petshop Timur1.jpg'),
+(2, 1, 'Cherry Petshop Timur2.jpg'),
+(3, 1, 'Cherry Petshop Timur3.jpg'),
+(6, 3, 'Moezza Petshop1.jpg'),
+(7, 3, 'Moezza Petshop2.jpg'),
+(8, 3, 'Moezza Petshop3.jpg'),
+(9, 3, 'Moezza Petshop4.jpg'),
+(10, 3, 'Moezza Petshop5.jpg'),
+(11, 4, 'Cimo Petshop1.jpg'),
+(12, 4, 'Cimo Petshop2.jpg'),
+(13, 4, 'Cimo Petshop3.jpg'),
+(14, 5, 'Kinkin Petshop1.jpg'),
+(15, 5, 'Kinkin Petshop2.jpg'),
+(16, 5, 'Kinkin Petshop3.jpg'),
+(17, 5, 'Kinkin Petshop4.jpg'),
+(18, 6, 'Cleo Petshop1.jpg'),
+(19, 6, 'Cleo Petshop2.jpg'),
+(20, 6, 'Cleo Petshop3.jpg'),
+(21, 7, 'Hokie Petshop1.jpg'),
+(22, 7, 'Hokie Petshop2.jpg'),
+(23, 7, 'Hokie Petshop3.jpg'),
+(24, 7, 'Hokie Petshop4.jpg'),
+(25, 8, 'Cherry Petshop Utara1.jpg'),
+(26, 8, 'Cherry Petshop Utara2.jpg'),
+(27, 8, 'Cherry Petshop Utara3.jpg'),
+(28, 9, 'Mak e Petshop1.jpg'),
+(29, 9, 'Mak e Petshop2.jpg'),
+(30, 9, 'Mak e Petshop3.jpg'),
+(31, 10, 'Qiis Petshop1.jpg'),
+(32, 10, 'Qiis Petshop2.jpg'),
+(33, 10, 'Qiis Petshop3.jpg'),
+(34, 10, 'Qiis Petshop4.jpg'),
+(35, 10, 'Qiis Petshop5.jpg');
 
 -- --------------------------------------------------------
 
@@ -176,13 +184,15 @@ CREATE TABLE `lokasi` (
 --
 
 INSERT INTO `lokasi` (`id_lokasi`, `nama`, `info`, `alamat`, `jadwal`, `telp`, `layanan`, `id_kecamatan`, `id_kelurahan`, `lat`, `lng`, `id_admin`) VALUES
-(26, 'Cherry Petshop Timur', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Pet shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti hamster, anjing, kucing, dan musang.</p>\r\n\r\n<ul>\r\n	<li>Pet clinic</li>\r\n</ul>\r\n\r\n<p>Layanan pet clinic buka setiap hari dan dilakukan oleh dokter hewan.</p>\r\n\r\n<ul>\r\n	<li>Pet grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming jamur, kutu, dan potong bulu.</p>\r\n\r\n<ul>\r\n	<li>Pet hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan paling lama 1 bulan.</p>\r\n', 'Jl. Mt Haryono No. 159, Purwokerto Wetan, Kec. Purwokerto Tim., Kabupaten Banyumas, Jawa Tengah 53111', '08.00 - 21.00', '082243042225', 'Shop, Clinic, Hotel, Grooming', 2, 8, '-7.427223400077196', '109.25132567904444', 1),
-(27, 'Moezza Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Pet shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, hamster, kelinci, ikan, kura-kura, dan lainnya.</p>\r\n\r\n<ul>\r\n	<li>Pet clinic</li>\r\n</ul>\r\n\r\n<p>Layanan pet clinic yang ditawarkan berupa pengobatan, pensterilan, vaksinasi, menolong kelahiran, dan imunisasi.</p>\r\n\r\n<ul>\r\n	<li>Pet grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming jamur, grooming kutu, dan grooming biasa.</p>\r\n\r\n<ul>\r\n	<li>Pet hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan tanpa adanya batasan waktu tergantung customer.</p>\r\n', 'Jl. Kaliputih No. 67, Purwokerto Wetan, Kec. Purwokerto Tim., Kabupaten Banyumas, Jawa Tengah 53111', '08.00 - 20.00', '081391515700', 'Shop, Clinic, Hotel, Grooming', 2, 12, '-7.427266924430668', '109.25568443661047', 1),
-(28, 'Cimo Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Pet shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, hamster, dan kelinci.</p>\r\n\r\n<ul>\r\n	<li>Pet clinic</li>\r\n</ul>\r\n\r\n<p>Layanan pet clinic yang ditawarkan berupa pengobatan, pensterilan, vaksinasi, imunisasi, dan rawat inap.</p>\r\n\r\n<ul>\r\n	<li>Pet grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada mandi biasa, grooming biasa, grooming jamur, grooming kutu, dan grooming lengkap.</p>\r\n\r\n<ul>\r\n	<li>Pet hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan tanpa adanya batasan waktu tergantung customer.</p>\r\n', 'Jl. Perumnas, Bulupitu, Teluk, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53145', '08.00 - 20.00', '081226845348', 'Shop, Clinic, Hotel, Grooming', 4, 27, '-7.45014499912817', '109.25363149818162', 1),
-(29, 'Kinkin Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Pet shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, hamster, dan ikan.</p>\r\n\r\n<ul>\r\n	<li>Pet grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming biasa, grooming jamur, grooming kutu, dan grooming lengkap.</p>\r\n\r\n<ul>\r\n	<li>Pet hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan tanpa adanya batasan waktu tergantung customer.</p>\r\n', 'Jalan tanjung, Tanjung, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53144', '09.00 - 20.00', '082152222792', 'Shop, Hotel, Grooming', 4, 26, '-7.439285292112203', '109.21971797549094', 1),
-(30, 'Cleo Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Pet shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, hamster, dan kelinci.</p>\r\n\r\n<ul>\r\n	<li>Pet grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming biasa, grooming jamur, grooming kutu, dan grooming lengkap.</p>\r\n\r\n<ul>\r\n	<li>Pet clinic</li>\r\n</ul>\r\n\r\n<p>Layanan pet clinic yang ditawarkan berupa pengobatan, pensterilan, vaksinasi, imunisasi, dan rawat inap.&nbsp;</p>\r\n', 'Jl. Jatisari No.125, Pakembaran, Bancarkembar, Kec. Purwokerto Utara, Kabupaten Banyumas, Jawa Tengah 53121', '09.00 - 19.00', '0818275577', 'Shop, Clinic, Grooming', 1, 1, '-7.409339238364055', '109.23878129103048', 1),
-(31, 'Hokie Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Pet shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, hamster, dan kelinci.</p>\r\n\r\n<ul>\r\n	<li>Pet grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming biasa, grooming jamur, grooming kutu, dan grooming lengkap.</p>\r\n', 'Jl.Jatisari No 21-21A Kelurahan, Pakembaran, Bancarkembar, Kec. Purwokerto Utara, Kabupaten Banyumas, Jawa Tengah 53125', '08.00 - 21.30', '081327023084', 'Shop, Grooming', 1, 1, '-7.409093490106343', '109.2387958016385', 1),
-(32, 'Cherry Petshop Utara', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Pet shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, ikan, dan kelinci.</p>\r\n\r\n<ul>\r\n	<li>Pet grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming biasa, grooming jamur, grooming kutu, dan grooming lengkap.</p>\r\n\r\n<ul>\r\n	<li>Pet clinic</li>\r\n</ul>\r\n\r\n<p>Layanan pet clinic yang ditawarkan berupa pengobatan, pensterilan, vaksinasi, dan imunisasi. Jadwalnya buka setiap hari, jam 09.00 &ndash; 20.00.</p>\r\n\r\n<ul>\r\n	<li>Pet hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan tanpa adanya batasan waktu tergantung customer.</p>\r\n', 'Jl. Jatisari No.46, Pakembaran, Bancarkembar, Kec. Purwokerto Utara, Kabupaten Banyumas, Jawa Tengah 53125', '09.00 - 20.00', '08280007100', 'Shop, Clinic, Hotel, Grooming', 1, 1, '-7.408873190933548', '109.2390095012625', 1);
+(1, 'Cherry Petshop Timur', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti hamster, anjing, kucing, dan musang.</p>\r\n\r\n<ul>\r\n	<li>Clinic</li>\r\n</ul>\r\n\r\n<p>Layanan pet clinic buka setiap hari dan dilakukan oleh dokter hewan.</p>\r\n\r\n<ul>\r\n	<li>Grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming jamur, kutu, dan potong bulu.</p>\r\n\r\n<ul>\r\n	<li>Hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan paling lama 1 bulan.</p>\r\n', 'Jl. Mt Haryono No. 159, Purwokerto Wetan, Kec. Purwokerto Tim., Kabupaten Banyumas, Jawa Tengah 53111', '08.00 - 21.00', '082243042255', 'Shop, Clinic, Hotel, Grooming', 2, 12, '-7.427087133073314', '109.25133094583538', 1),
+(3, 'Moezza Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, hamster, kelinci, ikan, kura-kura, dan lainnya.</p>\r\n\r\n<ul>\r\n	<li>Clinic</li>\r\n</ul>\r\n\r\n<p>Layanan pet clinic yang ditawarkan berupa pengobatan, pensterilan, vaksinasi, menolong kelahiran, dan imunisasi.</p>\r\n\r\n<ul>\r\n	<li>Grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming jamur, grooming kutu, dan grooming biasa.</p>\r\n\r\n<ul>\r\n	<li>Hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan tanpa adanya batasan waktu tergantung customer.</p>\r\n', 'Jl. Kaliputih No. 67, Purwokerto Wetan, Kec. Purwokerto Tim., Kabupaten Banyumas, Jawa Tengah 53111', '08.00 - 20.00', '081391515700', 'Shop, Clinic, Hotel, Grooming', 2, 12, '-7.427245174605986', '109.25572803104484', 1),
+(4, 'Cimo Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, hamster, dan kelinci.</p>\r\n\r\n<ul>\r\n	<li>Clinic</li>\r\n</ul>\r\n\r\n<p>Layanan pet clinic yang ditawarkan berupa pengobatan, pensterilan, vaksinasi, imunisasi, dan rawat inap.</p>\r\n\r\n<ul>\r\n	<li>Grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada mandi biasa, grooming biasa, grooming jamur, grooming kutu, dan grooming lengkap.</p>\r\n\r\n<ul>\r\n	<li>Hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan tanpa adanya batasan waktu tergantung customer.</p>\r\n', 'Jl. Rasamala No.60, Karang Malang, Teluk, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53145', '08.00 - 20.00', '081226845348', 'Shop, Clinic, Hotel, Grooming', 4, 27, '-7.450173441084203', '109.25365039053304', 1),
+(5, 'Kinkin Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, hamster, dan ikan.</p>\r\n\r\n<ul>\r\n	<li>Grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming biasa, grooming jamur, grooming kutu, dan grooming lengkap.</p>\r\n\r\n<ul>\r\n	<li>Hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan tanpa adanya batasan waktu tergantung customer.</p>\r\n', 'Jalan tanjung, Tanjung, Kec. Purwokerto Sel., Kabupaten Banyumas, Jawa Tengah 53144', '09.00 - 20.00', '082152222792', 'Shop, Hotel, Grooming', 4, 26, '-7.4392980382540514', '109.21971683238297', 1),
+(6, 'Cleo Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, hamster, dan kelinci.</p>\r\n\r\n<ul>\r\n	<li>Grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming biasa, grooming jamur, grooming kutu, dan grooming lengkap.</p>\r\n\r\n<ul>\r\n	<li>Clinic</li>\r\n</ul>\r\n\r\n<p>Layanan pet clinic yang ditawarkan berupa pengobatan, pensterilan, vaksinasi, imunisasi, dan rawat inap. Jadwalnya buka hari Senin- Sabtu, jam 09.00 &ndash; 14.00 dan lanjut lagi jam 16.00 &ndash; 19.00. Hari sabtu, minggu, dan tanggal merah libur.</p>\r\n', 'Jl. Jatisari No.125, Pakembaran, Bancarkembar, Kec. Purwokerto Utara, Kabupaten Banyumas, Jawa Tengah 53121', '08.00 - 21.00', '0818275577', 'Shop, Clinic, Grooming', 1, 1, '-7.409312423124277', '109.23876196711456', 1),
+(7, 'Hokie Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, hamster, dan kelinci.</p>\r\n\r\n<ul>\r\n	<li>Grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming biasa, grooming jamur, grooming kutu, dan grooming lengkap.</p>\r\n', 'Jl.Jatisari No 21-21A Kelurahan, Pakembaran, Bancarkembar, Kec. Purwokerto Utara, Kabupaten Banyumas, Jawa Tengah 53125', '08.00 - 21.30', '081327023084', 'Shop, Grooming', 1, 1, '-7.40920005966143', '109.23875908639326', 1),
+(8, 'Cherry Petshop Utara', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, ikan, dan kelinci.</p>\r\n\r\n<ul>\r\n	<li>Grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming biasa, grooming jamur, grooming kutu, dan grooming lengkap.</p>\r\n\r\n<ul>\r\n	<li>Clinic</li>\r\n</ul>\r\n\r\n<p>Layanan pet clinic yang ditawarkan berupa pengobatan, pensterilan, vaksinasi, dan imunisasi. Jadwalnya buka setiap hari, jam 09.00 &ndash; 20.00.</p>\r\n\r\n<ul>\r\n	<li>Hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan tanpa adanya batasan waktu tergantung customer.</p>\r\n', 'Jl. Jatisari No.46, Pakembaran, Bancarkembar, Kec. Purwokerto Utara, Kabupaten Banyumas, Jawa Tengah 53125', '08.00 - 21.00', '08280007100', 'Shop, Clinic, Hotel, Grooming', 1, 1, '-7.408867486509777', '109.23899649922123', 1),
+(9, 'Mak e Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, ikan, ayam, dan burung.</p>\r\n', 'Jl. Pemuda No.12, Pesayangan, Kedungwuluh, Kec. Purwokerto Bar., Kabupaten Banyumas, Jawa Tengah 53131', '07.00 - 17.00', '082250792888', 'Shop', 3, 16, '-7.418579941627698', '109.22618667066166', 1),
+(10, 'Qiis Petshop', '<p>Layanan:</p>\r\n\r\n<ul>\r\n	<li>Shop</li>\r\n</ul>\r\n\r\n<p>Tempat ini menyediakan berbagai macam kebutuhan untuk hewan seperti kucing, anjing, dan hamster.</p>\r\n\r\n<ul>\r\n	<li>Grooming</li>\r\n</ul>\r\n\r\n<p>Layanan grooming yang tersedia ada grooming biasa, grooming plus, treatment jamur, treatment kutu, dan treatment bulu.</p>\r\n\r\n<ul>\r\n	<li>Hotel</li>\r\n</ul>\r\n\r\n<p>Layanan pet hotel ditempat ini bisa untuk penitipan hewan paling lama untuk satu minggu dan dikenakan biaya perharinya Rp 50.000,00.</p>\r\n', 'Jl. Jend. Sudirman No.138, Pasiraja Kidul, Bantarsoka, Kec. Purwokerto Bar., Kabupaten Banyumas, Jawa Tengah 53133', '08.00 - 20.00', '085866152499', 'Shop, Hotel, Grooming', 3, 14, '-7.423677685884897', '109.21905268064592', 1);
 
 -- --------------------------------------------------------
 
@@ -2337,7 +2347,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `foto`
 --
 ALTER TABLE `foto`
-  MODIFY `id_foto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_foto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `kecamatan`
@@ -2355,7 +2365,7 @@ ALTER TABLE `kelurahan`
 -- AUTO_INCREMENT for table `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `id_lokasi` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_lokasi` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `poligon`

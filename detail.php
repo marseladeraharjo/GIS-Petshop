@@ -64,8 +64,8 @@ $lng = $row['lng'];
         <div class="container">
           <div class="row text-center" id="detail-name">
             <h4><?= $nama; ?></h4>
-            <p>Telp: <?= $telp; ?></p>
-            <p> Alamat: <?= $alamat; ?></p>
+            <p><b>Telp: </b><?= $telp; ?></p>
+            <p><b>Alamat: </b><?= $alamat; ?></p>
           </div>
           <div class="row" id="detail-carousel-map">
             <div class="col-md-6 mt-2">

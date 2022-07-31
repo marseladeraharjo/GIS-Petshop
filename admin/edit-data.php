@@ -210,7 +210,7 @@ while ($value = mysqli_fetch_assoc($query)) {
                           <div class="thumbnail shadow" style="border-radius: 1em; background-color: white; ">
                             <img src="images/<?php echo $row['nama'] ?>" alt="Lights" class="d-block w-100 shadow" style="border-radius: 1em;">
                             <div class="caption">
-                              <a class="btn btn-danger mt-2" href="proses.php?p=hapus_foto&&id=<?php echo $row['id_foto'] ?>&&id_lokasi=<?php echo $row['id_lokasi'] ?>">Hapus</a>
+                              <a class="btn btn-danger mt-2" href="#" onclick="confirm_modal('proses.php?p=hapus_foto&&id=<?php echo $row['id_foto'] ?>&&id_lokasi=<?php echo $row['id_lokasi'] ?>')">Hapus</a>
                             </div>
                           </div>
                         </div>
@@ -237,6 +237,21 @@ while ($value = mysqli_fetch_assoc($query)) {
           </div>
         </div>
       </div>
+      <!-- Modal Popup untuk delete -->
+      <div class="modal fade" id="modal_delete">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-top:30vh;">
+            <div class="modal-header">
+                <h6 class="modal-title" style="text-align: center;">Anda yakin akan menghapus foto ini...?</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer" style="margin: 0px; border-top: 0px; text-align: center;">
+                <a href="#" class="btn btn-danger btn-sm" id="delete_link">Hapus</a>
+                <button type="button" class="btn btn-success btn-sm" data-bs-dismiss="modal">Batal</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="footer">
@@ -257,6 +272,14 @@ while ($value = mysqli_fetch_assoc($query)) {
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
     <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
     <script src="jquery.chained.js"></script>
+
+    <!-- js untuk popup modal delete -->
+    <script type="text/javascript">
+      function confirm_modal(delete_url){
+        $('#modal_delete').modal('show', {backdrop: 'static'});
+        document.getElementById('delete_link').setAttribute('href', delete_url);
+      }
+    </script>
 
     <script>
       $(function() {

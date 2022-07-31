@@ -330,7 +330,8 @@ if (isset($_POST['filter'])) {
                 var html = '';
                 html += "<h6><b>" + data['nama'] + "</b></h6>";
                 html += "<p>("+data['layanan']+")</p>";
-                html += "<p>Alamat: "+data['alamat']+"</p>";
+                html += "<p><b>Jam Operasional: </b>"+data['jadwal']+"</p>";
+                html += "<p><b>Alamat: </b>"+data['alamat']+"</p>";
                 html += "<a href='detail.php?id="+ data['id_lokasi'] +"'>Detail</a>";
 
                 new mapboxgl

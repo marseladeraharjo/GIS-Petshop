@@ -147,12 +147,13 @@ if(isset($_POST['filter'])){
                         <td>$layanan</td>
                         <td>$kecamatan</td>
                         <td>$alamat</td>
-                        <td><a class='btn btn-warning' href='edit-data.php?id=$id'>Ubah</a> <a class='btn btn-danger' href='proses.php?p=hapus_lokasi&&id=$id'>Hapus</a></td>
+                        <td><a class='btn btn-warning' href='edit-data.php?id=$id'>Ubah</a> <a class='btn btn-danger' href='#' onClick='confirm_modal(\"proses.php?p=hapus_lokasi&&id=$id\")'>Hapus</a></td>
                         </tr>";
                       }
                       
                       ?>
                   </tbody>
+                  <!-- <td><a class='btn btn-warning' href='edit-data.php?id=$id'>Ubah</a> <a class='btn btn-danger' href='proses.php?p=hapus_lokasi&&id=$id'>Hapus</a></td> -->
                   <tfoot>
                     <tr>
                       <th>No</th>
@@ -165,6 +166,21 @@ if(isset($_POST['filter'])){
                   </tfoot>
                 </table>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Popup untuk delete -->
+      <div class="modal fade" id="modal_delete">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-top:30vh;">
+            <div class="modal-header">
+                <h6 class="modal-title" style="text-align: center;">Anda yakin akan menghapus data ini...?</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer" style="margin: 0px; border-top: 0px; text-align: center;">
+                <a href="#" class="btn btn-danger btn-sm" id="delete_link">Hapus</a>
+                <button type="button" class="btn btn-success btn-sm" data-bs-dismiss="modal">Batal</button>
             </div>
           </div>
         </div>
@@ -191,6 +207,15 @@ if(isset($_POST['filter'])){
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.4.0/js/dataTables.select.min.js"></script>
+
+    <!-- js untuk popup modal delete -->
+    <script type="text/javascript">
+      function confirm_modal(delete_url){
+        $('#modal_delete').modal('show', {backdrop: 'static'});
+        document.getElementById('delete_link').setAttribute('href', delete_url);
+      }
+    </script>
+
     <script>
       $(document).ready(function () {
         $("#dataTable").DataTable({
